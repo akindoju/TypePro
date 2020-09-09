@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypePro</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+      integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <button class="settings-btn" id="settings-btn">
+      <i class="fas fa-cog"></i>
+    </button>
+
+    <div class="settings" id="settings">
+      <form id="settings-form">
+        <div>
+          <label for="difficulty" class="level">Difficulty:</label>
+          <select id="difficulty">
+            <option value="easy">Easy🙂</option>
+            <option value="medium">Medium🤨</option>
+            <option value="hard">Hard😮</option>
+          </select>
+        </div>
+      </form>
+    </div>
+
+    <div class="container">
+      <h2>👩‍💻 TypePro 👨‍💻</h2>
+      <small>Type the following:</small>
+
+      <h1 class="word" id="word"></h1>
+
+      <input
+        type="text"
+        id="text"
+        autocomplete="off"
+        placeholder="Type word here"
+      />
+
+      <p class="time-container">Time left: <span id="time"> 10s</span></p>
+      <p class="score-container">Your Score: <span id="score">0</span></p>
+
+      <div class="end-game-container" id="end-game-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
