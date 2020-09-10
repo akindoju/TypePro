@@ -12,6 +12,21 @@ const pregameBtn = document.getElementById('pregame-btn');
 
 function startGame() {
   const words = [
+    'unknotted',
+    'nonprofessional',
+    'lawfulness',
+    'wagtails',
+    'usableness',
+    'reprovisions',
+    'douce',
+    'crowdedly',
+    'domestications',
+    'nature',
+    'sprigtail',
+    'quaaludes',
+    'mittimuses',
+    'vinedressers',
+    'reefers',
     'smart',
     'sigh',
     'tense',
@@ -33,7 +48,39 @@ function startGame() {
     'admit',
     'drag',
     'pseudocode',
-    'TypePro',
+    'typepro',
+    'antelope',
+    'kitten',
+    'mouse',
+    'elephant',
+    'monkey',
+    'goat',
+    'python',
+    'zebra',
+    'lizard',
+    'rhinoceros',
+    'cat',
+    'dog',
+    'cockroach',
+    'tiger',
+    'lion',
+    'dragonfly',
+    'grasshopper',
+    'wolf',
+    'scorpion',
+    'hyena',
+    'jaguar',
+    'panther',
+    'giraffe',
+    'porcupine',
+    'sardine',
+    'tilapia',
+    'goldfish',
+    'cheetah',
+    'eel',
+    'olusola',
+    'akindoju',
+    'frontline',
   ];
 
   let randomWord;
@@ -41,12 +88,12 @@ function startGame() {
   let difficulty =
     localStorage.getItem('difficulty') !== null
       ? localStorage.getItem('difficulty')
-      : 'Easy';
+      : 'easy';
 
   difficultySelect.value =
     localStorage.getItem('difficulty') !== null
       ? localStorage.getItem('difficulty')
-      : 'Easy';
+      : 'easy';
 
   let time = 10;
 
@@ -81,20 +128,10 @@ function startGame() {
     }
   }
 
-  function gameOver() {
-    endgameEl.innerHTML = `
-    <h1>Time ran out</h1>
-    <p>Your final score is ${score}</p>
-    <button class = "gameOver-btn" onclick = "location.reload()">Play Again?</button>
-    `;
-
-    endgameEl.style.display = 'flex';
-  }
-
   addWordToDOM();
 
   text.addEventListener('input', (e) => {
-    const insertedText = e.target.value;
+    const insertedText = e.target.value.toLocaleLowerCase();
 
     if (insertedText === randomWord) {
       addWordToDOM();
@@ -121,6 +158,16 @@ function startGame() {
     difficulty = e.target.value;
     localStorage.setItem('difficulty', difficulty);
   });
+
+  function gameOver() {
+    endgameEl.innerHTML = `
+    <h1>Time ran out</h1>
+    <p>Your final score is ${score}</p>
+    <button class = "gameOver-btn" onclick = "location.reload()">Play Again?</button>
+    `;
+
+    endgameEl.style.display = 'flex';
+  }
 }
 
 pregameBtn.addEventListener('click', () => {
