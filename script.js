@@ -83,6 +83,12 @@ function startGame() {
     'frontline',
   ];
 
+  let time = 10;
+
+  let score = 0;
+
+  text.focus();
+
   let randomWord;
 
   let difficulty =
@@ -94,12 +100,6 @@ function startGame() {
     localStorage.getItem('difficulty') !== null
       ? localStorage.getItem('difficulty')
       : 'easy';
-
-  let time = 10;
-
-  let score = 0;
-
-  text.focus();
 
   const timeInterval = setInterval(updateTime, 1000);
 
@@ -163,7 +163,11 @@ function startGame() {
     endgameEl.innerHTML = `
     <h1>Time ran out</h1>
     <p>Your final score is ${score}</p>
-    <button class = "gameOver-btn" onclick = "location.reload()">Play Again?</button>
+    <button class = "gameOver-btn" onclick = "function restartGame() {
+      endgameEl.innerHTML = null;
+      endgameEl.style.display = 'none';
+      startGame();
+    }; restartGame()">Play Again?</button>
     `;
 
     endgameEl.style.display = 'flex';
